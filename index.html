@@ -1,1 +1,286 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suman Thapa - Full Stack Developer</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid white;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        section {
+            padding: 3rem 0;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+        
+        .experience-item h3 {
+            color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .profile-photo {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="./suman.jpeg" alt="Suman Thapa" class="profile-photo">
+                <div>
+                    <h1>Suman Thapa</h1>
+                    <p>Full Stack Developer</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a passionate Full Stack Developer with 6+ years of experience in the IT industry. My expertise lies in PHP with Laravel framework, JavaScript, and web applications with marketing strategy. I am dedicated to working responsibly in challenging environments and creating innovative solutions.</p>
+        </section>
+        
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">PHP</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">Laravel</div>
+                <div class="skill-item">React</div>
+                <div class="skill-item">Vue.js</div>
+                <div class="skill-item">Node.js</div>
+                <div class="skill-item">MySQL</div>
+                <div class="skill-item">PostgreSQL</div>
+                <div class="skill-item">REST API</div>
+                <div class="skill-item">GraphQL</div>
+                <div class="skill-item">Docker</div>
+                <div class="skill-item">Git</div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <h3>Laravel & Vue/React Js Developer at Gamenic Nalamiz Tech Pvt. Ltd</h3>
+                <p><em>April 2020 - Present</em></p>
+                <ul>
+                    <li>Worked with an international team from a remote location</li>
+                    <li>Developed and maintained a real-time chat application system</li>
+                    <li>Utilized Vue, Vuex, Element UI, and Laravel Voyager</li>
+                    <li>Worked with docker environment and performed Unit Testing</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Full Stack Developer at Nepse Alpha Pvt. Ltd.</h3>
+                <p><em>September 2019 - April 2020</em></p>
+                <ul>
+                    <li>Developed web applications for Nepal Stock Market using Vue.js, Laravel API, and Inertia.js</li>
+                    <li>Integrated and modified Trading view Chart for Web Portals</li>
+                    <li>Developed mobile app using React Native</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>Bachelor of Science in Computer Science & Information Technology (BSc. CSIT) - Tribhuvan University, Ambition College (76.5%)</li>
+                <li>10+2 in Science - HSEB Board, Nepal at Southwestern State College (62.4%)</li>
+                <li>S.L.C - Nepal Government at Academy Boarding High School (77.75%)</li>
+            </ul>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <p>Email: talktosumanthapa@gmail.com</p>
+            <p>Mobile: 9841323412</p>
+            <p>Address: Baluwatar, Kathmandu, Nepal</p>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Suman Thapa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation to skill items
+        const skillItems = document.querySelectorAll('.skill-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.5s ease-out';
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        // Add this CSS for the animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
