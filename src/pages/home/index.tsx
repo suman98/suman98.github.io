@@ -1,5 +1,7 @@
-import React, { useRef } from 'react';
-import NavMenu from '@/@core/components/NavBar'; // Import NavMenu component
+import React, { useRef } from "react";
+import NavMenu from "./components/NavBar"; // Import NavMenu component
+import AboutMe from "./components/About";
+import ProfessionalSummary from './components/ProfessionalSummary'
 
 const SinglePageApp: React.FC = () => {
   // Create references for each section
@@ -17,7 +19,7 @@ const SinglePageApp: React.FC = () => {
       education: educationRef,
     };
 
-    sectionRefs[section]?.current?.scrollIntoView({ behavior: 'smooth' });
+    sectionRefs[section]?.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -26,22 +28,40 @@ const SinglePageApp: React.FC = () => {
       <NavMenu onMenuClick={scrollToSection} />
 
       {/* Section Components */}
-      <div ref={aboutRef} style={{ padding: '100px 0', height: '100vh', backgroundColor: '#f0f0f0' }}>
-        <h2>About</h2>
-        <p>This is the About section content.</p>
+      <div
+        ref={aboutRef}
+        style={{ padding: "50px 0", backgroundColor: "#f0f0f0" }}
+      >
+        <AboutMe />
       </div>
 
-      <div ref={skillsRef} style={{ padding: '100px 0', height: '100vh', backgroundColor: '#fafafa' }}>
-        <h2>Skills</h2>
-        <p>This is the Skills section content.</p>
+      <div
+        ref={skillsRef}
+
+      >
+        <ProfessionalSummary />
       </div>
 
-      <div ref={experienceRef} style={{ padding: '100px 0', height: '100vh', backgroundColor: '#f0f0f0' }}>
+      <div
+        ref={experienceRef}
+        style={{
+          padding: "100px 0",
+          height: "100vh",
+          backgroundColor: "#f0f0f0",
+        }}
+      >
         <h2>Experience</h2>
         <p>This is the Experience section content.</p>
       </div>
 
-      <div ref={educationRef} style={{ padding: '100px 0', height: '100vh', backgroundColor: '#fafafa' }}>
+      <div
+        ref={educationRef}
+        style={{
+          padding: "100px 0",
+          height: "100vh",
+          backgroundColor: "#fafafa",
+        }}
+      >
         <h2>Education</h2>
         <p>This is the Education section content.</p>
       </div>

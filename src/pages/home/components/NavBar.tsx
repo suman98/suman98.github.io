@@ -6,8 +6,16 @@ interface NavMenuProps {
 }
 
 const NavMenu: React.FC<NavMenuProps> = ({ onMenuClick }) => {
+  const menuStyle: React.CSSProperties = {
+    position: 'sticky',
+    top: 0,
+    zIndex: 1000,
+    backgroundColor: '#ffffff',
+    borderBottom: '1px solid #dcdcdc',
+  };
+
   return (
-    <Menu mode="horizontal">
+    <Menu mode="horizontal" style={menuStyle}>
       <Menu.Item key="about" onClick={() => onMenuClick('about')}>
         About
       </Menu.Item>
