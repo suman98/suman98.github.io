@@ -19,7 +19,7 @@ const data = [
 
 const App: React.FC = () => (
   <>
-    <Divider orientation="left">Professional Summary</Divider>
+    <Divider orientation="center">Professional Summary</Divider>
     <List
       bordered
       dataSource={data}
