@@ -4,7 +4,8 @@ import AboutMe from "./components/About";
 import ProfessionalSummary from "./components/ProfessionalSummary";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
-import MySkill from './components/MySkills'
+import MySkill from "./components/MySkills";
+import ContactMe from "./components/ContactMe";
 
 const SinglePageApp: React.FC = () => {
   // Create references for each section
@@ -12,6 +13,7 @@ const SinglePageApp: React.FC = () => {
   const skillsRef = useRef<HTMLDivElement>(null);
   const experienceRef = useRef<HTMLDivElement>(null);
   const educationRef = useRef<HTMLDivElement>(null);
+  const contactMeRef = useRef<HTMLDivElement>(null);
 
   // Function to scroll to the specified section
   const scrollToSection = (section: string) => {
@@ -20,6 +22,7 @@ const SinglePageApp: React.FC = () => {
       skills: skillsRef,
       experience: experienceRef,
       education: educationRef,
+      contactMe: contactMeRef,
     };
 
     sectionRefs[section]?.current?.scrollIntoView({ behavior: "smooth" });
@@ -33,7 +36,7 @@ const SinglePageApp: React.FC = () => {
       {/* Section Components */}
       <div className="container">
         <div ref={aboutRef} className="mt-2">
-          <AboutMe />
+          <AboutMe contactMeRef={contactMeRef} />
         </div>
 
         <div ref={skillsRef} className="m-2">
@@ -49,6 +52,9 @@ const SinglePageApp: React.FC = () => {
         </div>
         <div ref={educationRef}>
           <MySkill />
+        </div>
+        <div ref={contactMeRef}>
+          <ContactMe />
         </div>
       </div>
     </div>

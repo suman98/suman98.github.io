@@ -48,6 +48,22 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
 
 const ProfessionalExperience: React.FC = () => {
   const experiences: Experience[] = [
+
+    {
+      company: "Nepse Alpha Pvt. Ltd.",
+      position: "Full Stack Developer / React/ React Native/ Vue",
+      duration: "September 2019 - Present",
+      location: "Lazimpat, KTM",
+      responsibilities: [
+        "Developed web applications that provide news and various tools regarding Nepal Stock Market",
+        "Developed database structure as per requirements using PostgreSQL database",
+        "Integrated and modified Trading view Chart for Web Portals",
+        "Involved in database query optimization",
+        "Worked on web scrapings",
+        "Learned and developed a mobile app using React Native"
+      ],
+      technologies: ["Vue.js", "Laravel API", "Inertia.js", "PostgreSQL", "Element UI", "Vuetify", "React Native"]
+    },
     {
       company: "Global English Campus (GEC)",
       position: "Laravel / Vue JS Developer",
@@ -58,8 +74,9 @@ const ProfessionalExperience: React.FC = () => {
         "Follow Agile Development and used ClickUp",
         "Designed and developed workspace management system"
       ],
-      technologies: ["Vue", "Vuex", "Vuexy", "Bootstrap Vue", "Apollo GraphQL"]
+      technologies: ["Vue", "Vuex", "Vuexy", "Bootstrap Vue", "Apollo GraphQL", "Python", "Laravel"]
     },
+  
     {
       company: "Gamenic Nalamiz Tech Pvt. Ltd",
       position: "Laravel & Vue/React Js Developer",
@@ -74,21 +91,6 @@ const ProfessionalExperience: React.FC = () => {
         "Perform Unit Testing"
       ],
       technologies: ["Vue", "Vuex", "Element UI", "Laravel Voyager", "Docker"]
-    },
-    {
-      company: "Nepse Alpha Pvt. Ltd.",
-      position: "Full Stack Developer / React/ React Native/ Vue",
-      duration: "September 2019 - April 2020",
-      location: "Lazimpat, KTM",
-      responsibilities: [
-        "Developed web applications that provide news and various tools regarding Nepal Stock Market",
-        "Developed database structure as per requirements using PostgreSQL database",
-        "Integrated and modified Trading view Chart for Web Portals",
-        "Involved in database query optimization",
-        "Worked on web scrapings",
-        "Learned and developed a mobile app using React Native"
-      ],
-      technologies: ["Vue.js", "Laravel API", "Inertia.js", "PostgreSQL", "Element UI", "Vuetify", "React Native"]
     },
     {
       company: "Mero Network Pvt. Ltd.",
@@ -108,11 +110,11 @@ const ProfessionalExperience: React.FC = () => {
   ];
 
   return (
-    <div className="p-4">
+    <div className="p-4 pb-0">
       <Divider orientation="center">Professional Experience</Divider>
-      <Timeline mode="alternate">
+      <Timeline mode="left">
         {experiences.map((exp: Experience, index: number) => (
-          <Timeline.Item key={index} label={exp.duration}>
+          <Timeline.Item key={index}>
             <ExperienceItem {...exp} />
           </Timeline.Item>
         ))}

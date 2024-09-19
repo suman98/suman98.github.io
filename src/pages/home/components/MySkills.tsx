@@ -58,11 +58,12 @@ const SkillsShowcase: React.FC = () => {
     {
       name: "Tools",
       items: [
-        "Sublime Text 3",
         "VS Code",
+        "Ai Tools",
         "Postman",
         "Git",
         "GitHub",
+        "Sublime Text 3",
         "Microsoft Office Tools",
       ],
     },

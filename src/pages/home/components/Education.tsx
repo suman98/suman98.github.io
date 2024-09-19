@@ -104,7 +104,7 @@ const ProjectAndEducation: React.FC = () => {
   ];
 
   return (
-    <div className="p-4">
+    <div className="p-4 pb-0">
       <Divider orientation="center">Education Summary</Divider>
       <ProjectSection project={project} />
       <EducationSection educations={educations} />
