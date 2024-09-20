@@ -112,7 +112,7 @@ const ProfessionalExperience: React.FC = () => {
   return (
     <div className="p-4 pb-0">
       <Divider orientation="center">Professional Experience</Divider>
-      <Timeline mode="left">
+      <Timeline mode="left" >
         {experiences.map((exp: Experience, index: number) => (
           <Timeline.Item key={index}>
             <ExperienceItem {...exp} />

@@ -6,6 +6,8 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import MySkill from "./components/MySkills";
 import ContactMe from "./components/ContactMe";
+import CustomParticle from "@/@core/components/ParticleBackground";
+import './home.scss'
 
 const SinglePageApp: React.FC = () => {
   // Create references for each section
@@ -29,17 +31,19 @@ const SinglePageApp: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="pb-3">
+  
       {/* Render the navigation menu */}
       <NavMenu onMenuClick={scrollToSection} />
-
+      <CustomParticle />
       {/* Section Components */}
       <div className="container">
         <div ref={aboutRef} className="mt-2">
+        {/*  */}
           <AboutMe contactMeRef={contactMeRef} />
         </div>
 
-        <div ref={skillsRef} className="m-2">
+        <div ref={skillsRef} >
           <ProfessionalSummary />
         </div>
 
@@ -59,6 +63,6 @@ const SinglePageApp: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default SinglePageApp;

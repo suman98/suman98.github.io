@@ -3,7 +3,7 @@ import { Card, Avatar, Typography, Button, Space } from "antd";
 import {
   EnvironmentOutlined,
   GithubOutlined,
-  TwitterOutlined,
+  // TwitterOutlined,
   LinkedinOutlined,
   FacebookOutlined,
   MailOutlined,
@@ -85,13 +85,13 @@ const AboutMe: React.FC<AboutMeProps> = ({ contactMeRef }) => {
           >
             <GithubOutlined style={{ fontSize: "24px", color: "#1890ff" }} />
           </a>
-          <a
+          {/* <a
             href="https://www.facebook.com/suman9841323"
             target="_blank"
             rel="noopener noreferrer"
           >
             <TwitterOutlined style={{ fontSize: "24px", color: "#1890ff" }} />
-          </a>
+          </a> */}
           <a
             href="https://www.linkedin.com/in/suman-thapa-3a957a1b5/"
             target="_blank"

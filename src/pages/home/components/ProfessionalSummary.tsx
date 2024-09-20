@@ -1,35 +1,103 @@
-import React from 'react';
-import { Divider, List, Typography } from 'antd';
+import React from "react";
+import { Card, Typography, List, Tag, Row, Col, Divider } from "antd";
+import {
+  CodeOutlined,
+  TeamOutlined,
+  ApiOutlined,
+  MobileOutlined,
+  DatabaseOutlined,
+} from "@ant-design/icons";
 
-const data = [
-    { tag: 'Experience', content: '6+ years of IT industry experience on PHP with Laravel framework, JavaScript, and web applications with marketing strategy' },
-    { tag: 'CRM & ERP', content: 'Experience working on CRM (Customer Relationship Management) & ERP (Enterprise Resource Planning)' },
-    { tag: 'Billing Systems', content: 'Implemented Billing system for hotels & restaurants' },
-    { tag: 'International Teams', content: 'Worked with international teams following GitHub rules strictly' },
-    { tag: 'Software Support', content: 'Provided software support and handled issues in the production database' },
-    { tag: 'Client Requirements', content: 'Experience with gathering clients\' requirements for software developments' },
-    { tag: 'Applications', content: 'Implemented several applications using Laravel and XML-based web services for data exchange' },
-    { tag: 'APIs', content: 'Experience working on SOAP, REST API & GRAPHQL' },
-    { tag: 'Hybrid Apps', content: 'Developed and Deployed Hybrid (Android & IOS) application using IONIC Frameworks and React Native' },
-    { tag: 'REST API', content: 'Developed REST API for implementation in mobile-based applications' },
-    { tag: 'TradingView', content: 'Implemented TradingView charts API in Laravel application' },
-    { tag: 'Frontend & Backend', content: 'Mainly worked on React.js Framework as frontend and Laravel framework as backend' },
-    { tag: 'JS Frameworks', content: 'Also have experience working in other JS frameworks like Vue.js & Angular.js' }
+const { Title, Paragraph } = Typography;
+
+interface Skill {
+  icon: React.ReactNode;
+  text: string;
+}
+
+const ExperienceSummary: React.FC = () => {
+  const skills: Skill[] = [
+    {
+      icon: <CodeOutlined />,
+      text: "PHP, Laravel, JavaScript, React.js, Vue.js, Angular.js",
+    },
+    { icon: <TeamOutlined />, text: "International Teams, GitHub" },
+    { icon: <ApiOutlined />, text: "SOAP, REST API, GraphQL" },
+    {
+      icon: <MobileOutlined />,
+      text: "Hybrid Apps (Android & iOS), Ionic, React Native",
+    },
+    { icon: <DatabaseOutlined />, text: "CRM, ERP, Billing Systems" },
   ];
 
-const App: React.FC = () => (
-  <>
-    <Divider orientation="center">Professional Summary</Divider>
-    <List
-      bordered
-      dataSource={data}
-      renderItem={(item) => (
-        <List.Item>
-          <Typography.Text mark>[{item.tag}]</Typography.Text> {item.content}
-        </List.Item>
-      )}
-    />
-  </>
-);
+  const experiences: string[] = [
+    "6+ years in IT industry with PHP, Laravel, JavaScript, and web applications",
+    "Implemented CRM, ERP, and Billing systems for hotels & restaurants",
+    "Developed REST APIs for mobile applications",
+    "Implemented TradingView charts API in Laravel application",
+    "Worked on XML-based web services for data exchange",
+    "Provided software support and handled production database issues",
+    "Gathered client requirements for software development projects",
+  ];
 
-export default App;
+  const technologies: string[] = [
+    "PHP",
+    "Laravel",
+    "JavaScript",
+    "React.js",
+    "Vue.js",
+    "Angular.js",
+    "Ionic",
+    "React Native",
+    "REST API",
+    "GraphQL",
+    "SOAP",
+    "TradingView API",
+  ];
+
+  return (
+    <div className="p-4 pb-0">
+      <Divider orientation="center">Professional Experience Summary</Divider>
+      <Card>
+        <Row gutter={[16, 16]}>
+          <Col span={24} md={12}>
+            <Title level={4}>Key Skills</Title>
+            <List
+              dataSource={skills}
+              renderItem={(item: Skill) => (
+                <List.Item>
+                  <List.Item.Meta avatar={item.icon} title={item.text} />
+                </List.Item>
+              )}
+            />
+          </Col>
+
+          <Col span={24} md={12}>
+            <Title level={4}>Highlights</Title>
+            <List
+              dataSource={experiences}
+              renderItem={(item: string) => (
+                <List.Item>
+                  <Paragraph>{item}</Paragraph>
+                </List.Item>
+              )}
+            />
+          </Col>
+        </Row>
+
+        <Title level={4} style={{ marginTop: 20 }}>
+          Technologies
+        </Title>
+        <div>
+          {technologies.map((tech: string) => (
+            <Tag color="blue" key={tech} style={{ margin: "0 8px 8px 0" }}>
+              {tech}
+            </Tag>
+          ))}
+        </div>
+      </Card>
+    </div>
+  );
+};
+
+export default ExperienceSummary;

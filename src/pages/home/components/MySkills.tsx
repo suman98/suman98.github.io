@@ -70,13 +70,14 @@ const SkillsShowcase: React.FC = () => {
   ];
 
   return (
-    <div className="p-4">
+    <div className="px-4 pt-2">
+      <Divider orientation="center">Skills Showcase</Divider>
       <Card
-        title={
-          <Title level={2}>
-            <CodeOutlined /> Skills Showcase
-          </Title>
-        }
+      // title={
+      //   <Title level={2}>
+      //     <CodeOutlined /> Skills Showcase
+      //   </Title>
+      // }
       >
         <Paragraph>
           A comprehensive overview of my technical skills and proficiencies.

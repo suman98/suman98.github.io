@@ -8,6 +8,7 @@ const ContactMe = () => {
   const email = "talktosumanthapa@gmail.com";
 
   return (
+    <div className="mt-4">
     <Card
       style={{
         maxWidth: 800,
@@ -30,6 +31,7 @@ const ContactMe = () => {
         Send Email
       </Button>
     </Card>
+    </div>
   );
 };
 
