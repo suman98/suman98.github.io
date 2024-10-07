@@ -7,6 +7,8 @@ import {
   LinkedinOutlined,
   FacebookOutlined,
   MailOutlined,
+  ExportOutlined,
+  
 } from "@ant-design/icons";
 
 const { Title, Paragraph, Text } = Typography;
@@ -112,6 +114,13 @@ const AboutMe: React.FC<AboutMeProps> = ({ contactMeRef }) => {
             rel="noopener noreferrer"
           >
             <MailOutlined style={{ fontSize: "24px", color: "#1890ff" }} />
+          </a>
+          <a
+            href="/Suman_thapa_cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ExportOutlined style={{ fontSize: "24px", color: "#1890ff" }} />
           </a>
         </Space>
       </div>
