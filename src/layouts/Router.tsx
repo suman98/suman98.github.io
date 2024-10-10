@@ -4,6 +4,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '@/pages/home/index';
 import MySpec from '@/pages/spec/index'
 import PlayGround from '@/pages/play';
+import HangManGame from '@/pages/games/hangman/index'
 
 const AppRouter: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const AppRouter: React.FC = () => {
         <Route  path="/" element={<Home />} />
         <Route path="/play" element={<PlayGround />} />
         <Route path="/spec" element={<MySpec />} />
+        <Route path="/hangman" element={<HangManGame />} />
       </Routes>
     </Router>
   );
