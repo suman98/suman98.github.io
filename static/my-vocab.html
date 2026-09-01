@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>Vocab Wallpaper</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    color: #000;
+  }
+
+  #main-content {
+    width: 390px;
+    min-height: 844px;
+    padding: 60px 28px 48px;
+    box-sizing: border-box;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .header-date {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+  .divider {
+    width: 40px;
+    height: 2px;
+    background: #000;
+    margin: 16px auto 0;
+  }
+
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .card {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+  }
+  .card:last-child { border-bottom: none; }
+
+  .card-top {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .word {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #000;
+    font-weight: 700;
+  }
+
+  .pos-badge {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    border: 1px solid #ccc;
+    padding: 2px 7px;
+    border-radius: 20px;
+  }
+
+  .meaning {
+    font-size: 13px;
+    color: #222;
+    line-height: 1.55;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+
+  .example {
+    font-size: 11.5px;
+    color: #000;
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  /* Loading & error states */
+  .state-msg {
+    text-align: center;
+    padding: 60px 0;
+    color: #aaa;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  .state-msg.error { color: #e55; }
+</style>
+</head>
+<body>
+
+<div id="main-content">
+  <div class="header">
+    <div class="header-date" id="date-label"></div>
+  </div>
+  <div class="cards-container" id="cards">
+    <div class="state-msg">Loading…</div>
+  </div>
+</div>
+
+<script>
+const API_URL = `https://playground-main-4jgncl.laravel.cloud/api/unknown_words/random?cb=${Math.floor(Math.random()*1e8)}`;
+
+async function fetchAndRender() {
+  const container = document.getElementById('cards');
+
+  try {
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    const words = json.data;
+
+    if (!words || words.length === 0) {
+      container.innerHTML = '<div class="state-msg error">No words returned from API.</div>';
+      return;
+    }
+
+    container.innerHTML = '';
+    words.forEach(v => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="card-top">
+          <span class="word">${v.word}${v.nepali ? ' / ' + v.nepali : ''}</span>
+        </div>
+        <div class="meaning">${v.meaning}</div>
+        ${v.sentence ? `<div class="example">"${v.sentence}"</div>` : ''}
+      `;
+      container.appendChild(card);
+    });
+
+  } catch (err) {
+    console.error(err);
+    container.innerHTML = `<div class="state-msg error">Failed to load words.<br><small>${err.message}</small></div>`;
+  }
+}
+
+fetchAndRender();
+</script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+{
+    "personalInfo": {
+      "name": "Suman Thapa",
+      "title": "Full Stack Software Engineer | AI Engineer",
+      "location": "Kathmandu, Nepal",
+      "email": "talktosumanthapa@gmail.com",
+      "profileImage": "https://suman98.github.io/images/suman.jpeg",
+      "website": "https://suman98.github.io/",
+      "github": "https://github.com/suman98"
+    },
+    "summary": {
+      "content": "Full Stack Developer with 8+ years of experience building and architecting scalable web and mobile applications. Expertise in React.js, Vue.js, Laravel, Django, PHP, modern JavaScript frameworks, REST & GraphQL APIs, and DevOps. Successfully delivered AI-driven features, dynamic dashboards, CRM/ERP systems, and cross-platform solutions.",
+      "vibes": "/images/vibes/summary.jpg"
+    },
+    "skills": {
+      "vibes": "/images/vibes/skills.jpg",
+      "Programming Languages": [
+        "PHP",
+        "Javascript",
+        "Python",
+        "C/C++",
+        "Go"
+      ],
+      "Backend Frameworks": [
+        "Laravel",
+        "Codeigniter",
+        "Django",
+        "Node.js",
+        "Adonis JS",
+        "Flask"
+      ],
+      "JavaScript Frameworks and Libraries": [
+        "Nuxt/Vue.js",
+        "Next/React.js",
+        "React Native",
+        "Three JS",
+        "jQuery",
+        "IONIC",
+        "Apollo GraphQL"
+      ],
+      "Frontend Tools and UI Libraries": [
+        "HTML",
+        "CSS",
+        "SCSS",
+        "JS",
+        "Bootstrap",
+        "Bootstrap Vue",
+        "Element UI",
+        "Vuetify.js",
+        "Material UI And more"
+      ],
+      "Web Services": [
+        "JSON",
+        "GraphQL",
+        "SOAP"
+      ],
+      "Databases": [
+        "MySQL",
+        "PostgreSQL",
+        "SQLite"
+      ],
+      "DevOps": [
+        "Docker",
+        "GitHub Actions",
+        "Linux",
+        "CI/CD"
+      ],
+      "Tools": [
+        "VS Code",
+        "Ai Tools",
+        "Postman",
+        "excalidraw",
+        "Git",
+        "GitHub",
+        "Sublime Text 3",
+        "Microsoft Office Tools"
+      ],
+      "Software Testing": [
+        "PHPUnit",
+        "Postman Tests",
+        "Cypress"
+      ]
+    },
+    "experience": {
+      "vibes": "/images/vibes/experience.jpg",
+      "items": [
+      {
+  
+        "company": "Global English Campus (GEC)",
+        "position": "Full Stack Developer (Web, Mobile, AI Integration)",
+        "duration": "Dec 2021",
+        "location": "Remote",
+        "responsibilities": [
+          "Developed and integrated AI-powered features, including Retrieval-Augmented Generation (RAG), into web and mobile platforms",
+          "Automated workflows and enhanced user experience using custom AI models, RAG pipelines, and third-party APIs",
+          "UI & WEB Development using Laravel & Vue CLI",
+          "Engineered AI-driven solutions by integrating OpenRouter and OpenAI APIs",
+          "Integrated AI-driven Images Generation API for various system uses",
+          "Designed and developed workspace management system and time tracking software",
+          "Implemented advanced reporting, role-based access control, and mobile app with React Native",
+          "Managed app deployment for iOS and Android"
+        ],
+        "technologies": [
+          "Laravel API",
+          "Vue.js",
+          "Nuxt JS",
+          "React",
+          "React Native",
+          "RAG",
+          "AI Integrations",
+          "Python",
+          "Django Framework",
+          "CI/CI"
+        ],
+        "link": "https://globalenglishcampus.com/",
+        "image": "/images/works/ge1.png"
+      },
+      {
+        "company": "Nepse Alpha Pvt. Ltd.",
+        "position": "Software Engineer and Project Manager",
+        "duration": "September 2019",
+        "location": "Lazimpat, KTM",
+        "responsibilities": [
+          "Developed backend logic and frontend UI for stock market platforms",
+          "Implemented database using PostgreSQL, optimized queries, integrated TradingView charts",
+          "Implemented ML algorithms for stock analysis and built mobile app with React Native"
+        ],
+        "technologies": [
+          "Vue.js",
+          "Laravel API",
+          "Inertia.js",
+          "PostgreSQL",
+          "React/React Native",
+          "Python",
+          "Trading View",
+          "PineJs",
+          "Material UI",
+          "Element UI",
+          "Vuetify",
+          "ML"
+        ],
+        "link": "https://nepsealpha.com/",
+        "image": "/images/works/np1.png"
+      },
+      {
+        "company": "GadgetByte Nepal",
+        "position": "Full Stack Developer",
+        "duration": "March 2026",
+        "location": "Baneshowor, KTM",
+        "responsibilities": [
+          "Created entire backend logic and frontend UI",
+          "Developed web applications providing news and various tools for the Nepal stock market",
+          "Designed and implemented database structures based on requirements using PostgreSQL",
+          "Integrated and customized TradingView charts for web portals",
+          "Developed and applied various machine learning algorithms for financial data analysis and stock price forecasting, ensuring robust validation and reproducibility",
+          "Utilized proper software management practices, including version control, code reviews, and project documentation",
+          "Implemented and managed DevOps processes for CI/CD pipelines, automated deployments, and environment management",
+          "Configured and optimized website performance and security using Cloudflare and related CDN tools",
+          "Optimized complex database queries for speed and efficiency",
+          "Built and maintained web scraping solutions for data collection",
+          "Learned and developed a mobile app using React Native"
+     
+        ],
+        "technologies": [
+          "Laravel",
+          "React.js",
+          "Next JS",
+          "MySQL",
+          "Tailwind",
+          "NextJs"
+        ],
+        "link": "https://www.gadgetbytenepal.com/",
+        "image": "/images/works/gbn.png"
+      },
+      {
+        "company": "Gamenic Nalamiz Tech Pvt. Ltd",
+        "position": "Laravel & Vue/React Js Developer",
+        "duration": "April 2020 - Dec 2021",
+        "location": "Remote",
+        "responsibilities": [
+          "Agile development with distributed international team and GitHub",
+          "Developed/maintained real-time chat systems, AWS log analysis, Docker environments, and unit testing"
+        ],
+        "technologies": ["React", "Redux", "Typescript", "MUI", "Laravel Voyager", "Docker"],
+        "link": "https://nalamiz.gamenic.io/",
+        "image": "/images/works/gm1.jpg"
+      },
+      {
+        "company": "Mero Network Pvt. Ltd.",
+        "position": "Laravel & React Developer",
+        "duration": "April 2018 - April 2020",
+        "location": "Lazimpat, KTM",
+        "responsibilities": [
+          "Worked on CRM, ERP, Travel and Inventory Management Systems",
+          "Implemented SOAP APIs for flight booking, built REST APIs for mobile, and upgraded legacy Laravel"
+        ],
+        "technologies": [
+          "Laravel",
+          "React",
+          "jQuery",
+          "Vue.js",
+          "Axios",
+          "AJAX",
+          "MySQL",
+          "SOAP API"
+        ],
+        "link": "https://meronetwork.com.np/portal/home",
+        "image": "/images/works/mn1.jpg"
+      }
+      ]
+    },
+  
+    "education": {
+      "vibes": "/images/vibes/education.JPG",
+      "items": [
+      {
+        "degree": "Master of Data Science and Computational Intelligence",
+        "institution": "Coventry University",
+        "year": "2023-2025"
+      },
+      {
+        "degree": "Bachelors of Science in Computer Science & Information Technology (BSc. CSIT)",
+        "institution": "Tribhuvan University at Ambition college",
+        "year": "2016 - 2020"
+      },
+      {
+        "degree": "10+2 in Science faculty",
+        "institution": "HSEB Board, Nepal at Southwestern State College",
+        "year": ""
+      },
+      {
+        "degree": "S.L.C",
+        "institution": "Nepal Government at Academy Boarding High School",
+        "year": ""
+      }
+      ]
+    },
+    "projects": {
+      "vibes": "/images/vibes/projects.jpg",
+      "items": [
+      {
+        "name": "RAG Pipe",
+        "description": "End-to-end Retrieval-Augmented Generation (RAG) pipeline integrating text chunking, vector database (Pinecone), and OpenAI/LLM-powered question answering for domain documents.",
+        "technologies": [
+          "Python",
+          "LangChain",
+          "FastAPI",
+          "Pinecone",
+          "OpenAI API"
+        ],
+        "features": [
+          "Document splitting and embedding",
+          "Semantic search & document retrieval",
+          "LLM-powered answer generation",
+          "Streaming/support for large files"
+        ]
+      },
+      {
+        "name": "AI Chatbot",
+        "description": "Conversational web chatbot leveraging retrieval and generative AI (RAG) to answer user questions by referencing integrated documentation and knowledge base.",
+        "technologies": [
+          "React.js",
+          "Next.js",
+          "LangChain",
+          "OpenAI API"
+        ],
+        "features": [
+          "Streaming chat interface",
+          "Supports referencing company docs",
+          "Contextual follow-up questions",
+          "Theming & user identity"
+        ]
+      },
+      {
+        "name": "Online Discussion Forum Project (Academic)",
+        "description": "BSc. CSIT graduate project built on Django, employing various machine learning algorithms (Edit Distance, Naive Bayes Classifier & TF IDF) for text processing.",
+        "technologies": [
+          "Python3",
+          "Django Framework",
+          "Jinja 2",
+          "HTML/CSS/Javascript/jQuery",
+          "SqlLite"
+        ]
+      },
+      {
+        "name": "Custom Dashboard Builder",
+        "description": "Drag-and-drop dashboard system with dynamic creation and management of widgets.",
+        "technologies": ["React.js", "TypeScript", "Node.js", "Grid Layout"],
+        "features": [
+          "Dynamic widget positioning",
+          "Resizable components",
+          "Layout saving to database",
+          "Editable/locked mode"
+        ]
+      },
+      {
+        "name": "Stock Market Analytics Platform",
+        "description": "Live stock tracking and financial analytics system with sophisticated charting and news scraping tools.",
+        "technologies": ["Vue.js", "Highcharts", "Laravel", "MySQL"],
+        "features": [
+          "Live market updates",
+          "Advanced filtering",
+          "Technical indicators",
+          "TradingView integration"
+        ]
+      }
+      ]
+    },
+    "openSource": {
+      "vibes": "/images/vibes/open-source.jpg",
+      "items": [
+      {
+        "name": "Stock Market Rag",
+        "repo": "rag_model",
+        "url": "https://github.com/suman98/rag_model",
+        "description": "Retrieval-Augmented Generation experiments applied to stock market data."
+      },
+      {
+        "name": "VS Code Project Manager",
+        "repo": "vscode-easy-project-manager",
+        "url": "https://github.com/suman98/vscode-easy-project-manager",
+        "description": "VS Code extension for quickly switching between and managing projects."
+      },
+      {
+        "name": "JS Injector",
+        "repo": "chrome-extension-js-injector",
+        "url": "https://github.com/suman98/chrome-extension-js-injector",
+        "description": "Chrome extension for injecting custom JavaScript into any web page."
+      },
+      {
+        "name": "vyro.js",
+        "repo": "vyro.js",
+        "url": "https://github.com/suman98/vyro.js",
+        "description": "Zero-config Vite plugin for multi-page apps. Drop HTML, React (.jsx/.tsx), or Vue (.vue) files into src/pages/ — each becomes its own standalone page. No route table, no manual entry list. The filesystem is the routing table."
+      }
+      ]
+    },
+    "achievements": {
+      "vibes": "/images/vibes/achievements.jpg",
+      "items": [
+        "8+ years of IT industry experience in Web/Mobile applications",
+        "Engineered AI-driven solutions by integrating OpenRouter and OpenAI APIs into web applications",
+        "Successfully architected and implemented CRM, ERP, and Billing systems for hospitality sector",
+        "Developed and integrated TradingView charts API within Laravel-based financial apps",
+        "Published multiple production-ready applications"
+      ]
+    },
+    "contact": {
+      "vibes": "/images/vibes/contact.jpg"
+    },
+    "interests": [
+      "System Design",
+      "Education & Financial Technology",
+      "AI & LLMs",
+      "Open Source Contribution"
+    ]
+  }

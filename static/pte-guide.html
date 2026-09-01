@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PTE Academic Exam Pattern</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --speak: #2563eb;
+    --speak-light: #dbeafe;
+    --write: #059669;
+    --write-light: #d1fae5;
+    --read: #d97706;
+    --read-light: #fef3c7;
+    --listen: #7c3aed;
+    --listen-light: #ede9fe;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #4c1d95 100%);
+    color: white;
+    padding: 48px 32px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; position: relative; }
+  .hero p { font-size: 1rem; opacity: .8; position: relative; max-width: 540px; margin: 0 auto 24px; }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+    position: relative;
+  }
+  .stat { text-align: center; }
+  .stat-val { font-size: 1.6rem; font-weight: 700; }
+  .stat-lbl { font-size: .75rem; opacity: .7; letter-spacing: .5px; text-transform: uppercase; }
+
+  /* NAV TABS */
+  .tabs {
+    display: flex; justify-content: center; gap: 4px;
+    background: white; padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 10;
+    flex-wrap: wrap;
+  }
+  .tab {
+    padding: 8px 18px; border-radius: 999px; border: none;
+    font-size: .85rem; font-weight: 600; cursor: pointer;
+    transition: all .2s; background: transparent; color: var(--muted);
+  }
+  .tab:hover { background: var(--border); color: var(--text); }
+  .tab.active-speak { background: var(--speak); color: white; }
+  .tab.active-write { background: var(--write); color: white; }
+  .tab.active-read  { background: var(--read);  color: white; }
+  .tab.active-listen{ background: var(--listen); color: white; }
+
+  /* MAIN CONTENT */
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+
+  /* SECTION */
+  .section { display: none; }
+  .section.visible { display: block; }
+
+  .section-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 28px;
+  }
+  .section-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; flex-shrink: 0;
+  }
+  .section-header h2 { font-size: 1.5rem; font-weight: 700; }
+  .section-header p { font-size: .9rem; color: var(--muted); margin-top: 2px; }
+
+  /* QUESTION TYPE CARD */
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .q-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+
+  .q-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 22px; cursor: pointer; user-select: none;
+  }
+  .q-header-left { display: flex; align-items: center; gap: 12px; }
+  .q-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .8rem; font-weight: 700; color: white; flex-shrink: 0;
+  }
+  .q-title { font-size: 1rem; font-weight: 600; }
+  .q-meta { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+  .q-arrow { font-size: .8rem; color: var(--muted); transition: transform .3s; }
+  .q-card.open .q-arrow { transform: rotate(180deg); }
+
+  .q-body {
+    display: none; padding: 0 22px 22px;
+    border-top: 1px solid var(--border); padding-top: 18px;
+  }
+  .q-card.open .q-body { display: block; }
+
+  .q-desc { font-size: .9rem; line-height: 1.7; color: #334155; margin-bottom: 16px; }
+
+  .info-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px; margin-bottom: 16px;
+  }
+  @media (max-width: 500px) { .info-grid { grid-template-columns: 1fr; } }
+
+  .info-box {
+    background: var(--bg); border-radius: 10px; padding: 12px 14px;
+  }
+  .info-box .label { font-size: .72rem; text-transform: uppercase; letter-spacing: .6px; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+  .info-box .value { font-size: .88rem; font-weight: 500; color: var(--text); }
+
+  .tips-box {
+    border-radius: 10px; padding: 14px 16px;
+    margin-top: 4px;
+  }
+  .tips-box .tips-title { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 8px; }
+  .tips-box ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .tips-box ul li { font-size: .85rem; line-height: 1.5; padding-left: 16px; position: relative; }
+  .tips-box ul li::before { content: '→'; position: absolute; left: 0; font-weight: 600; }
+
+  .badge {
+    display: inline-block; font-size: .72rem; font-weight: 600;
+    padding: 2px 9px; border-radius: 999px; margin-left: 8px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📝 PTE Academic Exam Pattern</h1>
+  <p>Complete guide to all question types across all four sections</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Hours</div></div>
+    <div class="stat"><div class="stat-val">4</div><div class="stat-lbl">Sections</div></div>
+    <div class="stat"><div class="stat-val">20</div><div class="stat-lbl">Question Types</div></div>
+    <div class="stat"><div class="stat-val">10–90</div><div class="stat-lbl">Score Range</div></div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab active-speak" onclick="show('speak', this)">🎤 Speaking</button>
+  <button class="tab" onclick="show('write', this)">✍️ Writing</button>
+  <button class="tab" onclick="show('read', this)">📖 Reading</button>
+  <button class="tab" onclick="show('listen', this)">🎧 Listening</button>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════ SPEAKING ═══════════════ -->
+<div id="speak" class="section visible">
+  <div class="section-header">
+    <div class="section-icon" style="background:var(--speak-light);color:var(--speak)">🎤</div>
+    <div>
+      <h2 style="color:var(--speak)">Speaking & Writing</h2>
+      <p>Combined section — approx. 54–67 minutes &nbsp;|&nbsp; Tests speaking AND writing skills</p>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--speak)">1</div>
+        <div>
+          <div class="q-title">Read Aloud</div>
+          <div class="q-meta">Speaking · 6–7 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">A text of up to 60 words appears on screen. After a beep, read the text aloud as naturally and clearly as possible within the time shown on the progress bar.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Preparation Time</div><div class="value">30–40 seconds</div></div>
+        <div class="info-box"><div class="label">Recording Time</div><div class="value">30–40 seconds</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Speaking + Reading</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">Content, Oral fluency, Pronunciation</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--speak-light)">
+        <div class="tips-title" style="color:var(--speak)">💡 Key Tips</div>
+        <ul style="color:#1e3a8a">
+          <li>Do not pause for more than 3 seconds or the recording stops automatically.</li>
+          <li>Maintain a natural pace — don't rush or speak too slowly.</li>
+          <li>Use the prep time to scan and chunk the text.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--speak)">2</div>
+        <div>
+          <div class="q-title">Repeat Sentence</div>
+          <div class="q-meta">Speaking · 10–12 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">You hear a sentence (3–9 seconds). After the beep, repeat the sentence exactly as you heard it — same words, same order, same tone.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Audio Length</div><div class="value">3–9 seconds</div></div>
+        <div class="info-box"><div class="label">Response Time</div><div class="value">15 seconds</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Speaking + Listening</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">Content, Oral fluency, Pronunciation</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--speak-light)">
+        <div class="tips-title" style="color:var(--speak)">💡 Key Tips</div>
+        <ul style="color:#1e3a8a">
+          <li>Focus on keywords and sentence structure while listening.</li>
+          <li>Even if you miss a word, keep going — don't freeze.</li>
+          <li>Mimicking the speaker's intonation boosts your score.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--speak)">3</div>
+        <div>
+          <div class="q-title">Describe Image</div>
+          <div class="q-meta">Speaking · 6–7 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">An image (graph, chart, diagram, map, or picture) appears on screen. Describe it in as much detail as possible within the given time.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Preparation Time</div><div class="value">25 seconds</div></div>
+        <div class="info-box"><div class="label">Response Time</div><div class="value">40 seconds</div></div>
+        <div class="info-box"><div class="label">Image Types</div><div class="value">Graph, chart, map, diagram, picture</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">Content, Oral fluency, Pronunciation</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--speak-light)">
+        <div class="tips-title" style="color:var(--speak)">💡 Key Tips</div>
+        <ul style="color:#1e3a8a">
+          <li>Use a structured template: intro → main trend → key detail → conclusion.</li>
+          <li>Fill all 40 seconds — don't stop early.</li>
+          <li>Use academic phrases: "The graph illustrates…", "It is evident that…"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--speak)">4</div>
+        <div>
+          <div class="q-title">Re-tell Lecture</div>
+          <div class="q-meta">Speaking · 3–4 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">You listen to a lecture (60–90 seconds), sometimes accompanied by an image. After the beep, retell the lecture in your own words, covering the key points.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Audio Length</div><div class="value">60–90 seconds</div></div>
+        <div class="info-box"><div class="label">Preparation Time</div><div class="value">10 seconds</div></div>
+        <div class="info-box"><div class="label">Response Time</div><div class="value">40 seconds</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Speaking + Listening</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--speak-light)">
+        <div class="tips-title" style="color:var(--speak)">💡 Key Tips</div>
+        <ul style="color:#1e3a8a">
+          <li>Take notes during the lecture — write keywords, not full sentences.</li>
+          <li>Start with: "The lecture discusses…" and cover the main idea + 2–3 details.</li>
+          <li>Speak continuously; avoid long pauses.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--speak)">5</div>
+        <div>
+          <div class="q-title">Answer Short Question</div>
+          <div class="q-meta">Speaking · 5–6 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">You hear a short question. Give a one-word or very brief answer immediately after the beep. Questions test general knowledge and vocabulary.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Response Time</div><div class="value">10 seconds</div></div>
+        <div class="info-box"><div class="label">Expected Answer</div><div class="value">1–2 words</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Speaking + Listening</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">Vocabulary (correct word)</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--speak-light)">
+        <div class="tips-title" style="color:var(--speak)">💡 Key Tips</div>
+        <ul style="color:#1e3a8a">
+          <li>Listen carefully — the answer is usually one specific word.</li>
+          <li>Build general vocabulary (science, geography, everyday concepts).</li>
+          <li>If unsure, give your best guess — no penalty for wrong answers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q6 — WRITING in S&W -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--write)">6</div>
+        <div>
+          <div class="q-title">Summarize Written Text <span class="badge" style="background:var(--write-light);color:var(--write)">Writing</span></div>
+          <div class="q-meta">Writing · 2–3 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">Read a passage (~300 words) and write a one-sentence summary that captures the main points. Your response must be a single sentence of 5–75 words.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Time Allowed</div><div class="value">10 minutes per item</div></div>
+        <div class="info-box"><div class="label">Word Limit</div><div class="value">5–75 words (one sentence)</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Reading + Writing</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">Content, Form, Grammar, Vocabulary</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--write-light)">
+        <div class="tips-title" style="color:var(--write)">💡 Key Tips</div>
+        <ul style="color:#065f46">
+          <li>Identify the topic sentence + 2 key supporting ideas.</li>
+          <li>Use a complex sentence structure with subordinate clauses.</li>
+          <li>Avoid bullet points or multiple sentences — it must be ONE sentence.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q7 — Essay -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--write)">7</div>
+        <div>
+          <div class="q-title">Write Essay <span class="badge" style="background:var(--write-light);color:var(--write)">Writing</span></div>
+          <div class="q-meta">Writing · 1–2 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">Write a 200–300 word argumentative or discursive essay on a given topic. You may be asked to discuss both sides, give your opinion, or analyze a situation.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Time Allowed</div><div class="value">20 minutes per item</div></div>
+        <div class="info-box"><div class="label">Word Limit</div><div class="value">200–300 words</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Writing</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">Content, Development, Structure, Grammar, Vocabulary</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--write-light)">
+        <div class="tips-title" style="color:var(--write)">💡 Key Tips</div>
+        <ul style="color:#065f46">
+          <li>Use a 5-paragraph structure: Intro → Body 1 → Body 2 → Counter → Conclusion.</li>
+          <li>Aim for 280 words — going under 200 or over 380 penalizes you.</li>
+          <li>Avoid repetition; use synonyms and varied sentence structures.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END SPEAKING -->
+
+
+<!-- ═══════════════ READING ═══════════════ -->
+<div id="read" class="section">
+  <div class="section-header">
+    <div class="section-icon" style="background:var(--read-light);color:var(--read)">📖</div>
+    <div>
+      <h2 style="color:var(--read)">Reading</h2>
+      <p>Approx. 29–30 minutes &nbsp;|&nbsp; Tests reading comprehension and vocabulary</p>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--read)">1</div>
+        <div>
+          <div class="q-title">Reading & Writing: Fill in the Blanks</div>
+          <div class="q-meta">Reading + Writing · 5–6 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">A passage with several blanks is shown. For each blank, select the most appropriate word from a dropdown list of 4–5 options.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Blanks per Text</div><div class="value">4–5 blanks</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Reading + Writing</div></div>
+        <div class="info-box"><div class="label">No. of Options</div><div class="value">4–5 per blank</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">1 point per correct blank</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--read-light)">
+        <div class="tips-title" style="color:var(--read)">💡 Key Tips</div>
+        <ul style="color:#78350f">
+          <li>Read the entire passage first to get context before filling blanks.</li>
+          <li>Look for grammatical clues — the sentence structure narrows choices.</li>
+          <li>Eliminate options that are grammatically or contextually wrong.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--read)">2</div>
+        <div>
+          <div class="q-title">Multiple Choice, Choose Multiple Answers</div>
+          <div class="q-meta">Reading · 2–3 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">Read a passage (~300 words) and answer a question by selecting ALL correct responses from a list. There may be more than one correct answer.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">No. of Options</div><div class="value">5–7 options</div></div>
+        <div class="info-box"><div class="label">Correct Answers</div><div class="value">More than one</div></div>
+        <div class="info-box"><div class="label">Negative Marking</div><div class="value">Yes — wrong answers deduct points</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Reading</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--read-light)">
+        <div class="tips-title" style="color:var(--read)">💡 Key Tips</div>
+        <ul style="color:#78350f">
+          <li>Be careful — wrong selections deduct marks.</li>
+          <li>Only select answers that are explicitly stated in the text.</li>
+          <li>Beware of distractors that partially match the text.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--read)">3</div>
+        <div>
+          <div class="q-title">Re-order Paragraphs</div>
+          <div class="q-meta">Reading · 2–3 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">Several text boxes containing sentences or paragraphs are shown in random order on the left. Drag and drop them into the correct order on the right to form a coherent passage.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">No. of Boxes</div><div class="value">4–6 text boxes</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Reading</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">Partial credit for adjacent pairs</div></div>
+        <div class="info-box"><div class="label">Strategy</div><div class="value">Identify topic sentence first</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--read-light)">
+        <div class="tips-title" style="color:var(--read)">💡 Key Tips</div>
+        <ul style="color:#78350f">
+          <li>Find the introductory sentence — it rarely starts with "However" or "Therefore."</li>
+          <li>Look for pronoun references (he, she, it, they) that link to previous sentences.</li>
+          <li>Linking words (furthermore, in contrast, consequently) signal paragraph order.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--read)">4</div>
+        <div>
+          <div class="q-title">Reading: Fill in the Blanks</div>
+          <div class="q-meta">Reading · 4–5 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">A passage with blanks is shown. A list of words appears below the passage. Drag the correct word into each blank. There are more words than blanks.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Extra Words</div><div class="value">Yes — more options than blanks</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Reading + Vocabulary</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">1 point per correct blank</div></div>
+        <div class="info-box"><div class="label">No Negative Marking</div><div class="value">Incorrect ≠ deduction</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--read-light)">
+        <div class="tips-title" style="color:var(--read)">💡 Key Tips</div>
+        <ul style="color:#78350f">
+          <li>Check the part of speech needed for each blank (noun/verb/adjective).</li>
+          <li>Use collocations — certain words naturally go together (e.g., "significant impact").</li>
+          <li>Start with the blanks you're most confident about.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--read)">5</div>
+        <div>
+          <div class="q-title">Multiple Choice, Choose Single Answer</div>
+          <div class="q-meta">Reading · 1–2 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">Read a passage and answer a question by selecting the single best response from 4–5 options. Only one answer is correct.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">No. of Options</div><div class="value">4–5</div></div>
+        <div class="info-box"><div class="label">Correct Answers</div><div class="value">Exactly one</div></div>
+        <div class="info-box"><div class="label">Negative Marking</div><div class="value">No</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Reading</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--read-light)">
+        <div class="tips-title" style="color:var(--read)">💡 Key Tips</div>
+        <ul style="color:#78350f">
+          <li>Use the process of elimination — cross out clearly wrong options.</li>
+          <li>Base your answer only on the text — don't use outside knowledge.</li>
+          <li>Watch for paraphrased options — the correct answer may reword the text.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END READING -->
+
+
+<!-- ═══════════════ LISTENING ═══════════════ -->
+<div id="listen" class="section">
+  <div class="section-header">
+    <div class="section-icon" style="background:var(--listen-light);color:var(--listen)">🎧</div>
+    <div>
+      <h2 style="color:var(--listen)">Listening</h2>
+      <p>Approx. 30–43 minutes &nbsp;|&nbsp; Tests listening comprehension and note-taking</p>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--listen)">1</div>
+        <div>
+          <div class="q-title">Summarize Spoken Text</div>
+          <div class="q-meta">Listening + Writing · 2–3 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">Listen to a lecture or talk (60–90 seconds). Write a 50–70 word summary covering the key points. You have 10 minutes per item.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Audio Length</div><div class="value">60–90 seconds</div></div>
+        <div class="info-box"><div class="label">Time Allowed</div><div class="value">10 minutes</div></div>
+        <div class="info-box"><div class="label">Word Limit</div><div class="value">50–70 words</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">Content, Form, Grammar, Vocabulary, Spelling</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--listen-light)">
+        <div class="tips-title" style="color:var(--listen)">💡 Key Tips</div>
+        <ul style="color:#4c1d95">
+          <li>Take notes during the audio — keywords and figures are critical.</li>
+          <li>Paraphrase the audio; don't copy phrases verbatim.</li>
+          <li>Check word count — too short or too long affects the Form score.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--listen)">2</div>
+        <div>
+          <div class="q-title">Multiple Choice, Choose Multiple Answers</div>
+          <div class="q-meta">Listening · 2–3 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">Listen to a recording and select ALL correct answers from a list. Multiple correct options may exist. Negative marking applies.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Negative Marking</div><div class="value">Yes</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Listening</div></div>
+        <div class="info-box"><div class="label">Audio Type</div><div class="value">Interview, lecture, discussion</div></div>
+        <div class="info-box"><div class="label">Played</div><div class="value">Once only</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--listen-light)">
+        <div class="tips-title" style="color:var(--listen)">💡 Key Tips</div>
+        <ul style="color:#4c1d95">
+          <li>Read the question and options BEFORE the audio plays.</li>
+          <li>Don't select options that sound familiar but aren't directly stated.</li>
+          <li>If in doubt between 2 options, don't guess randomly — negative marking hurts.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--listen)">3</div>
+        <div>
+          <div class="q-title">Fill in the Blanks</div>
+          <div class="q-meta">Listening + Writing · 2–3 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">A transcript with blanks appears on screen. Listen to the audio and type the missing words into the blanks. The words must be spelled correctly.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Listening + Writing</div></div>
+        <div class="info-box"><div class="label">Spelling</div><div class="value">Must be exact — spelling counts</div></div>
+        <div class="info-box"><div class="label">Audio</div><div class="value">Played once</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">1 point per correct blank</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--listen-light)">
+        <div class="tips-title" style="color:var(--listen)">💡 Key Tips</div>
+        <ul style="color:#4c1d95">
+          <li>Read the transcript quickly before the audio — predict possible words.</li>
+          <li>Focus on the blanks while listening; don't get distracted by the rest.</li>
+          <li>Double-check spelling — one wrong letter = zero points for that blank.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--listen)">4</div>
+        <div>
+          <div class="q-title">Highlight Correct Summary</div>
+          <div class="q-meta">Listening · 2–3 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">Listen to a recording (~90 seconds). Read several paragraphs and select the one that best summarizes the recording.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">No. of Options</div><div class="value">4–5 summaries</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Listening + Reading</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">1 point (all or nothing)</div></div>
+        <div class="info-box"><div class="label">Audio</div><div class="value">Played once</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--listen-light)">
+        <div class="tips-title" style="color:var(--listen)">💡 Key Tips</div>
+        <ul style="color:#4c1d95">
+          <li>Skim the summaries before the audio plays.</li>
+          <li>Eliminate options with facts not mentioned in the recording.</li>
+          <li>The correct summary won't add outside information.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--listen)">5</div>
+        <div>
+          <div class="q-title">Multiple Choice, Choose Single Answer</div>
+          <div class="q-meta">Listening · 1–2 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">Listen to a recording and answer a question by selecting the single best response from 4–5 options. No negative marking.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Negative Marking</div><div class="value">No</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Listening</div></div>
+        <div class="info-box"><div class="label">Correct Answers</div><div class="value">Exactly one</div></div>
+        <div class="info-box"><div class="label">Audio</div><div class="value">Played once</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--listen-light)">
+        <div class="tips-title" style="color:var(--listen)">💡 Key Tips</div>
+        <ul style="color:#4c1d95">
+          <li>Read the question before listening to know what to focus on.</li>
+          <li>Trust what you heard — don't second-guess based on assumptions.</li>
+          <li>Since there's no penalty, always select your best guess.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--listen)">6</div>
+        <div>
+          <div class="q-title">Select Missing Word</div>
+          <div class="q-meta">Listening · 2–3 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">Listen to a recording where the last word or phrase is replaced by a beep. Select the most appropriate option to complete the audio from the list provided.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">No. of Options</div><div class="value">4–5</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Listening</div></div>
+        <div class="info-box"><div class="label">Negative Marking</div><div class="value">No</div></div>
+        <div class="info-box"><div class="label">Played</div><div class="value">Once</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--listen-light)">
+        <div class="tips-title" style="color:var(--listen)">💡 Key Tips</div>
+        <ul style="color:#4c1d95">
+          <li>Pay attention to the tone and context of the whole recording.</li>
+          <li>The correct word must fit logically AND grammatically.</li>
+          <li>Often tests prediction and understanding of context.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--listen)">7</div>
+        <div>
+          <div class="q-title">Highlight Incorrect Words</div>
+          <div class="q-meta">Listening · 2–3 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">A transcript appears on screen while you listen to the audio. Click on the words in the transcript that differ from what the speaker actually says.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Listening + Reading</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">+1 correct click / −1 wrong click</div></div>
+        <div class="info-box"><div class="label">Audio</div><div class="value">Played once</div></div>
+        <div class="info-box"><div class="label">Incorrect Words</div><div class="value">2–7 differences</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--listen-light)">
+        <div class="tips-title" style="color:var(--listen)">💡 Key Tips</div>
+        <ul style="color:#4c1d95">
+          <li>Follow the transcript word by word as you listen.</li>
+          <li>Differences are usually single word substitutions, not added/removed words.</li>
+          <li>Don't click unless you're sure — wrong clicks reduce your score.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-header-left">
+        <div class="q-num" style="background:var(--listen)">8</div>
+        <div>
+          <div class="q-title">Write from Dictation</div>
+          <div class="q-meta">Listening + Writing · 3–4 items</div>
+        </div>
+      </div>
+      <span class="q-arrow">▼</span>
+    </div>
+    <div class="q-body">
+      <p class="q-desc">You hear a short sentence (spoken once). Type the sentence exactly as you heard it. Spelling and punctuation must be accurate.</p>
+      <div class="info-grid">
+        <div class="info-box"><div class="label">Sentence Length</div><div class="value">~10–15 words</div></div>
+        <div class="info-box"><div class="label">Skills Tested</div><div class="value">Listening + Writing</div></div>
+        <div class="info-box"><div class="label">Scoring</div><div class="value">1 point per correct word</div></div>
+        <div class="info-box"><div class="label">Audio</div><div class="value">Played once</div></div>
+      </div>
+      <div class="tips-box" style="background:var(--listen-light)">
+        <div class="tips-title" style="color:var(--listen)">💡 Key Tips</div>
+        <ul style="color:#4c1d95">
+          <li>Type as you listen — don't wait until the audio finishes.</li>
+          <li>Spelling must be perfect; each correctly typed word = 1 point.</li>
+          <li>If you miss a word, guess based on context rather than leaving it blank.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END LISTENING -->
+
+<!-- WRITE SECTION (empty — already covered in S&W) -->
+<div id="write" class="section">
+  <div class="section-header">
+    <div class="section-icon" style="background:var(--write-light);color:var(--write)">✍️</div>
+    <div>
+      <h2 style="color:var(--write)">Writing</h2>
+      <p>Writing tasks appear inside the <strong>Speaking &amp; Writing</strong> section of the exam</p>
+    </div>
+  </div>
+  <div style="background:white;border:1px solid var(--border);border-radius:16px;padding:28px 24px;text-align:center">
+    <div style="font-size:2.5rem;margin-bottom:12px">✍️</div>
+    <p style="font-size:1rem;font-weight:600;margin-bottom:8px">Writing is part of the Speaking &amp; Writing section</p>
+    <p style="color:var(--muted);font-size:.9rem;max-width:480px;margin:0 auto 20px">PTE Academic combines Speaking and Writing into a single timed section. The two writing task types are covered there:</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <div style="background:var(--write-light);border-radius:10px;padding:12px 20px;color:var(--write);font-weight:600;font-size:.9rem">📝 Summarize Written Text</div>
+      <div style="background:var(--write-light);border-radius:10px;padding:12px 20px;color:var(--write);font-weight:600;font-size:.9rem">📝 Write Essay</div>
+    </div>
+    <button onclick="show('speak', document.querySelector('.tab'))" style="margin-top:20px;background:var(--write);color:white;border:none;border-radius:999px;padding:10px 24px;font-weight:600;cursor:pointer;font-size:.9rem">
+      → View in Speaking &amp; Writing
+    </button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+    document.getElementById(id).classList.add('visible');
+    document.querySelectorAll('.tab').forEach(t => {
+      t.className = 'tab';
+    });
+    const map = { speak: 'active-speak', write: 'active-write', read: 'active-read', listen: 'active-listen' };
+    if (btn) btn.className = 'tab ' + map[id];
+    else {
+      const tabs = document.querySelectorAll('.tab');
+      const order = ['speak','write','read','listen'];
+      tabs[order.indexOf(id)].className = 'tab ' + map[id];
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggle(card) {
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
