@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2402],{35554:(_,n,s)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/task-manager/components/TaskCard",function(){return s(49507)}])}},_=>{_.O(0,[2930,4982,9507,636,6593,8792],()=>_(_.s=35554)),_N_E=_.O()}]);
