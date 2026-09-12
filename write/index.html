@@ -1,1 +1,134 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8" data-next-head=""/><meta name="viewport" content="width=device-width" data-next-head=""/><link rel="preload" href="/_next/static/css/b301ab0424111664.css" as="style"/><link rel="stylesheet" href="/_next/static/css/b301ab0424111664.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" noModule="" src="/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/_next/static/chunks/webpack-cbcb3604aebf2b98.js" defer=""></script><script src="/_next/static/chunks/framework-6a579fe8df05a747.js" defer=""></script><script src="/_next/static/chunks/main-f00ee7175af75af3.js" defer=""></script><script src="/_next/static/chunks/pages/_app-4fd2cc09a3970891.js" defer=""></script><script src="/_next/static/chunks/a7e16ef1-d370f5e5832f2681.js" defer=""></script><script src="/_next/static/chunks/b258f366-e9bf360dfba44a69.js" defer=""></script><script src="/_next/static/chunks/489b9f9a-05e43bb72d204e0a.js" defer=""></script><script src="/_next/static/chunks/2930-54b5a73c47bd0775.js" defer=""></script><script src="/_next/static/chunks/7155-29e737ac782e2de6.js" defer=""></script><script src="/_next/static/chunks/pages/write-db2d976564f38b51.js" defer=""></script><script src="/_next/static/4JmujIY2uIOhWoCBUpzd3/_buildManifest.js" defer=""></script><script src="/_next/static/4JmujIY2uIOhWoCBUpzd3/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div style="display:flex;flex-direction:column;height:100vh;width:100vw;background:#f6f8fa;color:#24292f;font-family:-apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, Roboto, sans-serif;transition:background 0.25s, color 0.25s;overflow:hidden;margin:0;padding:0;align-items:center;justify-content:center;font-size:1rem"><div style="text-align:center;animation:pulse 2s infinite"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" style="font-size:2rem;margin-bottom:10px;animation:spin 1s linear infinite" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg><p>Loading…</p></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/write","query":{},"buildId":"4JmujIY2uIOhWoCBUpzd3","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
+<!DOCTYPE html><html><head><meta charSet="utf-8" data-next-head=""/><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" data-next-head=""/><title data-next-head="">write — project chat log</title><meta name="description" content="A per-project writing log: send Markdown notes or sandboxed HTML, filter, pin, and edit them." data-next-head=""/><meta name="theme-color" content="#f7f9fc" data-next-head=""/><link rel="preload" href="/_next/static/css/0e87b0cbf5c37fd8.css" as="style"/><link rel="stylesheet" href="/_next/static/css/0e87b0cbf5c37fd8.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" noModule="" src="/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/_next/static/chunks/webpack-cbcb3604aebf2b98.js" defer=""></script><script src="/_next/static/chunks/framework-6a579fe8df05a747.js" defer=""></script><script src="/_next/static/chunks/main-f00ee7175af75af3.js" defer=""></script><script src="/_next/static/chunks/pages/_app-4fd2cc09a3970891.js" defer=""></script><script src="/_next/static/chunks/a7e16ef1-dd4f2c697ad9823e.js" defer=""></script><script src="/_next/static/chunks/ccbbfdf4-a66cf52555b5e673.js" defer=""></script><script src="/_next/static/chunks/5012-d785307703a80fb2.js" defer=""></script><script src="/_next/static/chunks/pages/write-e141e179f6147f09.js" defer=""></script><script src="/_next/static/Q7uGQOkZ6pP0uP2rFLe0v/_buildManifest.js" defer=""></script><script src="/_next/static/Q7uGQOkZ6pP0uP2rFLe0v/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div class="__variable_246ccd __variable_c29908 __variable_6b9622 write-app" style="display:contents"><style>
+    html, body { margin: 0; padding: 0; height: 100%; }
+    body { overflow: hidden; }
+
+    .write-app ::-webkit-scrollbar { width: 10px; height: 10px; }
+    .write-app ::-webkit-scrollbar-track { background: transparent; }
+    .write-app ::-webkit-scrollbar-thumb {
+      background: rgba(10,20,35,0.10);
+      border: 3px solid transparent;
+      background-clip: content-box;
+      border-radius: 999px;
+    }
+    .write-app ::-webkit-scrollbar-thumb:hover { background: #7c8797; background-clip: content-box; }
+
+    .write-app :focus { outline: none; }
+    .write-app :focus-visible {
+      outline: 2px solid #0f6fd6;
+      outline-offset: 2px;
+    }
+
+    /* Component styles are inline, so hover states need !important to land. */
+    .write-app [data-hover="soft"]:not(:disabled):hover { background-color: #eef2f7 !important; color: #0b1420 !important; }
+    .write-app [data-hover="danger"]:not(:disabled):hover { background-color: rgba(201,49,61,0.10) !important; color: #c9313d !important; }
+    .write-app [data-hover="frame"]:hover { background-color: rgba(255,255,255,0.2) !important; }
+    .write-app [data-hover="accent"]:hover { background-color: #0f6fd6 !important; color: #ffffff !important; }
+    .write-app [data-hover="outline"]:hover { border-color: #0f6fd6 !important; }
+    .write-app [data-hover="field"]:hover { border-color: #7c8797 !important; }
+    .write-app [data-hover="field"]:focus-within { border-color: #0f6fd6 !important; }
+    .write-app [data-hover="lift"]:hover { transform: scale(1.1); }
+    .write-app [data-hover="solid"]:not(:disabled):hover {
+      filter: brightness(1.08);
+      box-shadow: 0 12px 32px -12px rgba(15,111,214,0.30);
+      transform: translateY(-1px);
+    }
+    .write-app [data-hover]:not(:disabled):active { transform: translateY(0) scale(0.98); }
+
+    .write-app input:hover, .write-app textarea:hover { border-color: #7c8797 !important; }
+    .write-app input:focus, .write-app textarea:focus { border-color: #0f6fd6 !important; }
+    .write-app ::placeholder { color: #485363; opacity: 1; }
+
+    .write-divider::after {
+      content: "";
+      position: absolute;
+      inset: 0 5px;
+      background: rgba(10,20,35,0.10);
+      transition: background 140ms ease;
+    }
+    .write-divider:hover::after, .write-divider[data-dragging]::after { background: #0f6fd6; }
+
+    .write-message .write-actions { opacity: 0; transition: opacity 140ms ease; }
+    .write-message:hover .write-actions,
+    .write-message:focus-within .write-actions { opacity: 1; }
+    @media (hover: none) { .write-message .write-actions { opacity: 1; } }
+
+    .write-enter { animation: write-rise 320ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes write-rise {
+      from { opacity: 0; transform: translateY(10px); filter: blur(3px); }
+      to { opacity: 1; transform: none; filter: blur(0); }
+    }
+    .write-toast { animation: write-toast-in 260ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes write-toast-in {
+      from { opacity: 0; transform: translate(-50%, 12px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    .chat-markdown { font-size: 0.9375rem; line-height: 1.65; color: #0b1420; }
+    .chat-markdown > *:first-child { margin-top: 0; }
+    .chat-markdown > *:last-child { margin-bottom: 0; }
+    .chat-markdown p { margin: 0 0 10px; }
+    .chat-markdown h1, .chat-markdown h2, .chat-markdown h3 {
+      font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin: 18px 0 8px;
+    }
+    .chat-markdown h1 { font-size: 1.125rem; }
+    .chat-markdown h2 { font-size: 1rem; }
+    .chat-markdown h3 { font-size: 0.9375rem; }
+    .chat-markdown a { color: #0f6fd6; text-underline-offset: 2px; }
+    .chat-markdown code {
+      font-family: var(--font-geist-mono), monospace;
+      background: #eef2f7;
+      padding: 1px 5px;
+      border-radius: 8px;
+      font-size: 0.8125em;
+    }
+    .chat-markdown pre {
+      background: #f7f9fc;
+      border: 1px solid rgba(10,20,35,0.10);
+      padding: 12px 14px;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 0 0 10px;
+    }
+    .chat-markdown pre code { background: transparent; padding: 0; font-size: 0.8125rem; line-height: 1.6; }
+    .chat-markdown blockquote {
+      margin: 0 0 10px;
+      padding-left: 12px;
+      border-left: 1px solid rgba(10,20,35,0.10);
+      color: #485363;
+    }
+    .chat-markdown ul, .chat-markdown ol { margin: 0 0 10px; padding-left: 20px; }
+    .chat-markdown li { margin-bottom: 4px; }
+    .chat-markdown table { border-collapse: collapse; margin-bottom: 10px; font-size: 0.875rem; display: block; overflow-x: auto; }
+    .chat-markdown th, .chat-markdown td { border: 1px solid rgba(10,20,35,0.10); padding: 6px 10px; text-align: left; }
+    .chat-markdown th { background: #eef2f7; font-weight: 600; }
+    .chat-markdown img { max-width: 100%; height: auto; border-radius: 12px; display: block; margin: 8px 0; }
+    .chat-markdown img[data-zoomable] { cursor: zoom-in; transition: opacity 140ms ease; }
+    .chat-markdown img[data-zoomable]:hover { opacity: 0.88; }
+    .chat-markdown hr { border: none; border-top: 1px solid rgba(10,20,35,0.10); margin: 16px 0; }
+
+    .chat-markdown--bare img { margin: 0; border-radius: 0; width: 100%; }
+    .chat-markdown--bare p { margin: 0; }
+
+    .chat-markdown--accent, .chat-markdown--accent p, .chat-markdown--accent li,
+    .chat-markdown--accent h1, .chat-markdown--accent h2, .chat-markdown--accent h3 { color: #ffffff; }
+    .chat-markdown--accent a { color: #ffffff; text-decoration: underline; }
+    .chat-markdown--accent code { background: rgba(255,255,255,0.22); color: #ffffff; }
+    .chat-markdown--accent pre { background: rgba(5,7,10,0.22); border-color: rgba(255,255,255,0.22); }
+    .chat-markdown--accent blockquote { border-left-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.85); }
+    .chat-markdown--accent th, .chat-markdown--accent td { border-color: rgba(255,255,255,0.3); }
+    .chat-markdown--accent th { background: rgba(255,255,255,0.14); }
+    .chat-markdown--accent hr { border-top-color: rgba(255,255,255,0.3); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .write-app *, .write-app *::before, .write-app *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style><div style="display:flex;flex-direction:column;height:100dvh;width:100%;background:#f7f9fc;color:#0b1420;font-family:var(--font-geist-sans), -apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, sans-serif;overflow:hidden;align-items:center;justify-content:center"><span style="font-family:var(--font-geist-mono), &#x27;Fira Mono&#x27;, &#x27;SFMono-Regular&#x27;, Consolas, monospace;font-size:0.75rem;font-weight:500;letter-spacing:0.02em;color:#485363">Opening your log…</span></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/write","query":{},"buildId":"Q7uGQOkZ6pP0uP2rFLe0v","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
